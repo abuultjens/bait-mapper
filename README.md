@@ -1,5 +1,5 @@
 # bait-mapper
-Uses blast to map 120mer baits to a reference allowing 25% mismatch
+Uses blastn to map 120mer baits to a reference allowing 25% mismatch
 
 ## make blastn db
 ```makeblastdb -in CHR.fa -dbtype nucl -parse_seqids```
