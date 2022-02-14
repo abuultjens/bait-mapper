@@ -1,10 +1,10 @@
 # bait-mapper
 Uses blast to map 120mer baits to a reference allowing 25% mismatch
 
-```# make db
-makeblastdb -in CHR.fa -dbtype nucl -parse_seqids```
+make blastn db
+```makeblastdb -in CHR.fa -dbtype nucl -parse_seqids```
 
-# blastn
+run blastn
 ```blastn -db CHR.fa -query ALL_PROBES.fa -evalue 1e-5 -max_target_seqs 100000 -outfmt 6 -strand plus > blast.tab```
 
 # filter blast results to those with 25% mismatch
