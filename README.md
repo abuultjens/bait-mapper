@@ -7,7 +7,8 @@ Uses blast to map 120mer baits to a reference allowing 25% mismatch
 ## run blastn
 ```blastn -db CHR.fa -query ALL_PROBES.fa -evalue 1e-5 -max_target_seqs 100000 -outfmt 6 -strand plus > blast.tab```
 
-## filter blast results to those with 25% mismatch
+## filter blast results to those with 25% mismatch  
+Column 3 is percent ID and column 4 is alignment length. This command keeps all hits that are between 90 and 120 bp and excludes those that have greater than 30 bp in mismatch. This can be 30 SNPs across 120 bp or 100% ID across 90 bp.  
 ```awk '{if ($4<=120 && $4>=90.00)print }' blast.tab  | awk '{if (($3/100)*$4>=90.00)print }' > blast.filtered.tab```
 
 ## convert blast output to gff
